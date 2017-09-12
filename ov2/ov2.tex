@@ -52,22 +52,31 @@
 \vspace{1em}
 
 \ex{Exercise 5}
+\( \forall x \big( x \in A \leftrightarrow x \in B  \big) \leftrightarrow A = B \)   
 \begin{enumerate}[label=\alph*)]
-    \item{
-    }
+    \item \( A = B \) since A contains all elements of B and vice versa
 
-    \item{
-    }
+    \item \( ((1)) \in A \land ((1)) \in B \) but \( (1) \notin A \rightarrow A \neq B\) 
+
+    \item \( \emptyset \) is an empty set, and is not equal to a set containing an empty set.
 \end{enumerate}
 
 
 \ex{Exercise 24}
 \begin{enumerate}[label=\alph*)]
-    \item{
-    }
+    \item No. The power set of a set always include a set of an empty set: 
+        \( P(\emptyset) = (\emptyset) \) 
+        meaning a power set of a set is never empty. 
+        \( \forall A \big( (\emptyset) \in P(A)  \big) \rightarrow 
+        P(A) \neq \emptyset\)
 
-    \item{
-    }
+    \item Yes. \( P((a)) = (\emptyset, (a)) \)
+
+    \item No. \( P((\emptyset, a)) = 
+        \big(\emptyset, (a), (\emptyset), (a, \emptyset)\big) \)
+        The set in question is missing a \((\emptyset)\)
+
+    \item Yes. \( P((a, b)) = \big(\emptyset, (a), (b), (a,b)\big) \) 
 \end{enumerate}
 
 
@@ -77,23 +86,44 @@
 \vspace{1em}
 
 \ex{Exercise 18}
-\begin{enumerate}[label=\alph*)]
-    \item{ c
+\begin{enumerate}[label=\alph*), start=3]
+    \item{ 
+        \( (A-B) \equiv \forall x \mid x \in A \land x \notin B \)
+
+        \( (A-B) -C \equiv \forall x \mid x \in (A-B) \land x \notin C \)
+
+        \( (A-B) -C \equiv \forall x \mid x \in A \land x \notin B \land x \notin C \)
+
+        \( (A-C) \equiv \forall x \mid x \in A \land x \notin C \)
+
+        Since all elements of \( (A-B)-C \) are in \( (A-C) \), 
+            \( (A-B)-C \subseteq (A-C) \)
     }
 
-    \item{ d
+    \item{ 
+        \( (A-C) \equiv \forall x \mid x \in A \land x \notin C \)
+
+        \( (C-B) \equiv \forall x \mid x \in C \land x \notin B \)
+
+        \( (A-C) \cap (C-B) \equiv \forall x \mid x \in (A-C) \land x \in (C-B) \)
+
+        \( (A-C) \cap (C-B) \equiv \forall x \mid (x \in A \land x \notin C) \land 
+            (x \in C \land x \notin B) \)
+
+        Rewriting the paranthesis we get 
+
+        \( (A-C) \cap (C-B) \equiv \forall x \mid x \in A \land 
+            \underbrace{(x \notin C \land x \in C)}_{x \in \emptyset} \land x \notin B \)
+
+        Clearly, \( (A-C) \cap (C-B) = \emptyset \)
+
     }
 \end{enumerate}
 
 
 \ex{Exercise 46}
-\begin{enumerate}[label=\alph*)]
-    \item{
-    }
 
-    \item{
-    }
-\end{enumerate}
+\( \)
 
 
 
@@ -161,16 +191,6 @@
 
 \ex{Exercise 16}
 \begin{enumerate}[label=\alph*)]
-    \item{
-    }
-\end{enumerate}
-
-
-\ex{Exercise 12}
-\begin{enumerate}[label=\alph*)]
-    \item{
-    }
-
     \item{
     }
 \end{enumerate}
