@@ -1,0 +1,10 @@
+Rosen_Discrete_Mathematics_and_Its_Applications_7th_Edition.pdf
+
+# vim swapfiles
+*.swp
+*.swo
+
+# temp latex files
+*.aux
+*.dvi
+*.log
