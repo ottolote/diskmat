@@ -1,4 +1,5 @@
-Rosen_Discrete_Mathematics_and_Its_Applications_7th_Edition.pdf
+# all top-level pdfs
+*.pdf
 
 # vim swapfiles
 *.swp
