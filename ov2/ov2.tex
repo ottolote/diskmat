@@ -201,22 +201,77 @@
 \vspace{1em}
 
 \ex{Exercise 12}
+\( a_n = -3a_{n-1} + 4a_{n-2} \)
 \begin{enumerate}[label=\alph*)]
-    \item{ c
+    \item{ \eqns{
+            a_n = 0 \implies -3a_{n-1} + 4a_{n-2} = -3(0) + 4(0) = 0 = a_n\\
+            \intertext{Which means \(a_n = 0\) is a trivial solution to the
+            recurrence relation}
+    } }
+
+    \item{ \eqns{
+            a_n = 1 \implies -3a_{n-1} + 4a_{n-2} = -3 + 4 = 1 = a_n\\
+            \intertext{\(a_n = 1\) is a solution to the recurrence relation}
+    } }
+
+    \item{ \eqns {
+            a_n = (-4)^n \implies -3a_{n-1} + 4a_{n-2} &= 
+                -3((-4)^{n-1}) + 4((-4)^{n-2})  \\
+            &= -3((-4)(-4)^{n-2}) + 4((-4)^{n-2}) \\
+            \intertext{We pull \((-4)^{n-2}\) from the parentheses}
+            &= (-4)^{n-2} (-3)((-4)) + (-4)^{n-2}4(1) ) \\
+            &= (-4)^{n-2} ( (-3)(-4) + 4 ) \\
+            &= (-4)^{n-2} (18) \neq a_n
+            \intertext{\(a_n = (-4)^n\) is not a solution to the recurrence relation}
+    } }
+
+    \item   \eqns {
+            a_n = 2(-4)^n + 3 \implies -3a_{n-1} + 4a_{n-2} &=
+                -3\big( 2(-4)^{n-1} + 3 \big) + 4\big( 2(-4)^{n-2} + 3 \big) \\
+            &= -6(-4)^{n-1} -9  +  8(-4)^{n-2} + 12  \\
+            &= -6(-4)(-4)^{n-2} +  8(-4)^{n-2} + 3 \\
+            &= 24(-4)^{n-2} +  8(-4)^{n-2} + 3  \\
+            &= 32(-4)^{n-2} +  3  \\
+            &= 2(-4)^2(-4)^{n-2} +  3  \\
+            &= 2(-4)^n +  3 = a_n \\
+            \intertext{\(a_n = 2(-4)^n + 3\) is a solution to the recurrence relation}
     }
 
-    \item{
-    }
 \end{enumerate}
 
 
 \ex{Exercise 33}
 \begin{enumerate}[label=\alph*)]
-    \item{ d
+    \item \eqns {
+            \sum_{i=1}^2{\sum_{j=1}^{3}{(i+j)}} &= 
+                \sum_{i=1}^2{ \big( 3i + \sum_{j=1}^3{ j } \big) }\\
+            &= \sum_{i=1}^2{ (3i + 6) }\\
+            &= 12 + \sum_{i=1}^2{ 3i  }\\
+            &= 12 + 9 = 21\\
     }
 
-    \item{
+    \item \eqns { 
+            \sum_{i=0}^2{\sum_{j=0}^{3}{(2i+3j)}} &= 
+                \sum_{i=0}^2{ \big( 8i + \sum_{j=0}^3{ 3j } \big) }\\
+            &= \sum_{i=0}^2{ \big( 8i + 21 \big) }\\
+            &= 63 + \sum_{i=0}^2{  8i  }\\
+            &= 63 + 24 = 87\\
     }
+
+    \item \eqns {
+            \sum_{i=1}^3{\sum_{j=0}^{2}{i}} &= 
+                \sum_{i=1}^3{ \big( 3i + \sum_{j=0}^2{ 0 } \big) }\\
+            &= \sum_{i=1}^3{  3i  }\\
+            &= 3 + 6 + 9 = 18
+    }
+
+    \item \eqns {
+            \sum_{i=0}^2{ \sum_{j=1}^3{  ij  } } &= 
+                \sum_{i=0}^2{ \big( i \sum_{j=1}^3{ j } \big) } \\
+            &= \sum_{i=0}^2{ 6i  } \\
+            &= 0 + 6 + 12 = 18
+    }
+
 \end{enumerate}
 
 
