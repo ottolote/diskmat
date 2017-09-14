@@ -3,8 +3,10 @@
 \usepackage[utf8]{inputenc}
 
 % mathermatics
-\usepackage{amssymb} % useful math symbols
+\usepackage[fleqn]{mathtools} % left aligned equations, comment out for centered
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 \usepackage{amsmath} % more useful math
+\usepackage{amssymb} % useful math symbols
 
 % graphics
 \usepackage{graphicx}
@@ -32,6 +34,17 @@
 % very simple alias, \ex{} becomes the same as \subsubsection*{}
 % TIP: remove the * in the line below if you want it numbered
 \newcommand{\ex}[1]{\subsubsection*{#1}}
+
+% macro for multiple lines of equations
+% use \intertext{text} for text between equations
+% always end equations with a linefeed: \\ 
+\newcommand{\eqns}[1]{
+    \begin{align}
+        \begin{split} \nonumber
+            #1
+        \end{split}
+    \end{align}
+}
 
 
 
@@ -122,8 +135,19 @@
 
 
 \ex{Exercise 46}
-
-\( \)
+\begin{align}
+    \begin{split} \nonumber 
+        \intertext{The set \(A \cup B\) consists of all elements in A that are also in B.} 
+        A \cup B &= \forall x \mid x \in A \land x \in B \\
+        \intertext{Another way of describing \( A \cup B \) is to look at all elements in A plus all elements in B minus the duplicates, which are elements in both A and B.}
+        |A \cup B| &= |A| + |B| - |A \cap B| \\
+        \intertext{This also holds for \( A \cup B \cup C \) but this time we
+        have more duplicates. Elements in \( A \cap B \), \( A \cap C \) and \(
+        B \cap C \) are "counted" twice, and elements in \( A \cap B \cap C \)
+        are "counted" an extra time. }
+        |A \cup B \cup C| &= |A| + |B| + |C| - \underbrace{|A \cap B| - |A \cap C| - |B \cap C|}_{\text{elements covered twice by } |A|+|B|+|C|} - \underbrace{|A \cap B \cap C|}_{\text{elements covered three times by }|A|+|B|+|C|}
+    \end{split}
+\end{align}
 
 
 
@@ -133,31 +157,42 @@
 
 \ex{Exercise 12}
 \begin{enumerate}[label=\alph*)]
-    \item{
-    }
+    \item \( f(n) = n-1 \) is one-to-one since the function is strictly
+        growing. Since every \(\Delta n\) increase on its domain will produce a
+        \(\Delta y\) increase on its codomain, all values of n maps to a unique
+        value
 
-    \item{
-    }
+    \item \( f(n) = n^2 + 1 \) is one-to-one since \(f: \mathbb{Z} \mapsto
+        \mathbb{Z}\) and is strictly growing (even in n=0 because of
+        \(\mathbb{Z}\)). 
+
+    \item \( f(n) = n^3 \) is one to one for the same reason as in b)
+
+    \item \( f(n) = \ceil{n/2} \) is not one to one since every value of n maps to two values (except for n = 0).
 \end{enumerate}
-
 
 \ex{Exercise 38}
-\begin{enumerate}[label=\alph*)]
-    \item{
-    }
-
-    \item{
-    }
-\end{enumerate}
+\eqns{
+        f(x) &= ax+b \\
+        g(x) &= cx+d \\
+        f \circ g &= f(g(x)) = a(cx+d)+b = acx + ad + b \\
+        g \circ f &= g(f(x)) = c(ax+b)+d = acx + cb + d \\
+        f \circ g &= g \circ f \iff ad + b = cb + d
+}
 
 
 \ex{Exercise 42}
+\( f:\mathbb{R} \mapsto \mathbb{R} \) given by \( f(x) = x^2 \) has an inverse
+    \(f^{-1}\) given by \( f^{-1}(x) = \pm \sqrt{x}\)
 \begin{enumerate}[label=\alph*)]
-    \item{
-    }
+    \item \( f^{-1} (\{1\}) = \pm 1\)
 
-    \item{
-    }
+    \item \( f^{-1} (\{ x \mid 0 < x < 1\}) = \pm\{ x \mid 0 < x < \sqrt{1} \}
+        = \{ x \mid -1 < x < 1 \underbrace{\land x \neq 0}_{\text{input not
+        defined for \(x = 0\)}} \}\)
+
+    \item \( f^{-1} ( \{ x \mid x > 4 \} ) = \pm\{ x \mid x > \sqrt{4} \} 
+        = \{ x \mid -2 > x \land x > 2 \} \)
 \end{enumerate}
 
 
