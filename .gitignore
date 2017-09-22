@@ -1,5 +1,5 @@
 # all top-level pdfs
-*.pdf
+/*.pdf
 
 # vim swapfiles
 *.swp
