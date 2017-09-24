@@ -10,3 +10,7 @@
 *.dvi
 *.log
 *.out
+*converted-to.pdf
+
+# latex plugin files
+_minted*
