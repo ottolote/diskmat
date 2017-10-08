@@ -16,4 +16,4 @@
 _minted*
 
 # ignore incomplete pdfs
-ov5/ov5.pdf
+#ov5/ov5.pdf
