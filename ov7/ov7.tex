@@ -1,0 +1,243 @@
+\documentclass[a4paper]{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+
+% mathermatics
+\usepackage{amssymb} % useful math symbols
+\usepackage{amsmath} % more useful math
+\usepackage{bm} % for bold matrices
+
+% references and equation numbering
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{autonum}
+
+% graphics
+\usepackage{graphicx}
+\usepackage{float}    % for more accurate graphics placement
+\usepackage{fancyhdr} % for top header
+
+% formatting
+\usepackage{enumitem} % provides easy change of labels in enumerate environment
+\usepackage[top=3cm, bottom=3cm, width=17cm]{geometry} % for smaller page margins
+
+% colors
+\usepackage{xcolor}
+
+%% coding
+% 
+% see https://github.com/gpoore/minted for info
+% uncomment this after you have completed the required installation
+%
+%\usepackage{minted} 
+%\definecolor{codeBgColor}{RGB}{240,240,240}
+%
+
+\newcommand{\matr}[1]{\bm{#1}}
+
+
+% very simple alias, \ex{} becomes the same as \subsubsection*{}
+% TIP: remove the * in the line below if you want it numbered
+\newcommand{\ex}[1]{\subsubsection*{#1}}
+
+
+
+
+%Begining of the document
+\begin{document}
+
+\pagestyle{fancy} % use pagestyle with simple header (from fancyhdr)
+
+%\pagenumbering{gobble} % uncomment to remove pagenumbering (in case of single page document)
+\fancyhead[L]{TMA4140 Diskret Matematikk}
+\fancyhead[C]{\textbf{Øving 7}}
+\fancyhead[R]{Otto Lote 748704}
+
+
+\subsection*{Section 5.1}
+\ex{Exercise 4}
+
+\begin{enumerate}[label=\alph*)]
+    \item \(P(1): 1^3 = (\frac{1(1+1)}{2})^2\)
+
+    \item Basis step:
+
+        \(P(1): 1^3 = (\frac{1(1+1)}{2})^2 = 1\) \\
+        \(P(1)\) is true, which completes the basis step of a proof by
+            induction for \(P(k)\)
+
+    \item The inductive hypothesis consists of two parts: \\
+        - \(P(b)\) holds true \\
+        - \(P(k) \rightarrow P(k+1)\) holds true\\
+        Then \(P(k), \quad \forall k > b\)
+
+        In other words, if \(P\) is true for the first step, and \(P\) holds
+            true for an arbitrary step implies \(P\) holds true for the next
+            step, then \(P\) holds true for all steps. \\
+
+    \item You need to prove the first step \(P(b)\), and then you need to prove
+        \(P(k) \rightarrow P(k+1)\)
+
+    \item {
+            \begin{align}
+                \intertext{Basis step:}
+                1^3 = (1(1+1)/2)^2 = 1 \\
+                \intertext{LHS = RHS}
+                \intertext{Inductive step:}
+                \sum_{n=1}^k{n^3} &= \Big(\frac{k(k+1)}{2}\Big)^2 \label{eq:4e_k}\\
+                \intertext{We assume \(P(k)\) is true for an arbitrary integer
+                    \(k\). We can replace \(k\) with \(k+1\). Out goal is to
+                    show that if \(P(k)\) holds then \(P(k+1)\) must hold}
+                \sum_{n=1}^{k+1}{n^3} &= \Big(\frac{(k+1)((k+1)+1)}{2}\Big)^2 \\
+                \sum_{n=1}^{k}{n^3} + (k+1)^3 &= \Big(\frac{(k+1)(k+2)}{2}\Big)^2 \\
+                &= \Big(\frac{(k^2+3k+2)}{2}\Big)^2 \\
+                &= \Big(\frac{(k(k+1))}{2} + (k+1)\Big)^2 \\
+                \sum_{n=1}^{k}{n^3} + (k+1)^3 &= \Big(\frac{(k(k+1))}{2}\Big)^2
+                    + k(k+1)(k+1) + (k+1)^2 \\
+                \intertext{We subtract (\ref{eq:4e_k}) from the equation and have}
+                (k+1)^3 &= k(k+1)^2 + (k+1)^2 \\
+                (k+1)^3 &= (k+1)(k+1)^2 = (k+1)^3 \\
+                \intertext{LHS = RHS. This means that if \(P(k)\) holds true,
+                    then \(P(k+1)\) must also be true, which by the inductive
+                    hypothesis means that \(\forall k \geq 1, \quad P(k)\) holds true}
+            \end{align}
+    }
+\end{enumerate}
+
+
+\ex{Exercise 6}
+
+\begin{align}
+    \intertext{Basis step:}
+    1\cdot 1! &= (1 + 1)! - 1 \\
+    1 &= (2)! - 1 = 2 - 1 = 1\\
+    \intertext{LHS = RHS, so \(P(1)\) holds true}
+    \intertext{Inductive step:}
+    \sum_{n = 1}^k{n\cdot n!} &= (k + 1)! - 1 \label{eq:1-6-k}\\
+    \intertext{We assume that \(P(k)\) holds for all \(k > 1\), and replace
+        \(k\) with \(k+1\)}
+    \sum_{n = 1}^{k+1}{n\cdot n!} &= ((k+1) + 1)! - 1 \\
+    (k+1)\cdot(k+1)! + \sum_{n = 1}^{k}{n\cdot n!}  &= (k+2)! - 1 \\
+    (k+1)\cdot(k+1)! + \sum_{n = 1}^{k}{n\cdot n!}  &= (k+2)(k+1)! - 1 \\
+    \intertext{We subtract (\ref{eq:1-6-k}) from the equation and get}
+    (k+1)\cdot(k+1)! +  &= (k+2)(k+1)! - 1 - \big( (k+1)! - 1\big)\\
+    (k+1)\cdot(k+1)! +  &= (k+2)(k+1)!  -  (k+1)! \\
+    (k+1)\cdot(k+1)! +  &= k(k+1)! + 2(k+1)! - (k+1)! \\
+    (k+1)\cdot(k+1)! +  &= k(k+1)! + (k+1)!  \\
+    (k+1)\cdot(k+1)! +  &= (k+1)\cdot(k+1)!  \\
+    \intertext{LHS = RHS, so \(P(k)\) must hold for all \(k > 1\)}
+\end{align}
+
+
+\newpage
+\ex{Exercise 14} 
+
+\begin{enumerate}[label=\alph*)] 
+    \item 
+        \begin{align}
+            \intertext{\(P(k)\):}
+            \sum_{n=1}^k{ n2^n} &= (k-1)2^{k+1} + 2 \label{eq:1-14-k}\\
+            \intertext{Basis step:}
+            1\cdot 2^1 = (1-1)2^2{1+1} + 2 = 2\\
+            \intertext{LHS = RHS, so \(P(1)\) holds true}
+            \intertext{Induction step:}
+            \intertext{Replacing \(n\) with \(k+1\) in (\ref{eq:1-14-k}) gives us}
+            \sum_{n=1}^{k+1}{ n2^n} &= ((k+1)-1)2^{(k+1)+1} + 2 \\
+            (k+1)2^{k+1} + \sum_{n=1}^{k}{ n2^n} &= k2^{k+2} + 2 \\
+            (k+1)2^{k+1} + \sum_{n=1}^{k}{ n2^n} &= 2k2^{k+1} + 2 \\
+            \intertext{We subtract (\ref{eq:1-14-k}) from the equation and get}
+            (k+1)2^{k+1} &= 2k2^{k+1} + 2 - \big((k-1)2^{k+1} + 2\big) \\
+            (k+1)2^{k+1} &= 2k2^{k+1} - (k-1)2^{k+1} \\
+            (k+1)2^{k+1} &= (2k - (k-1)) 2^{k+1}\\
+            (k+1)2^{k+1} &= (k+1)2^{k+1}\\
+            \intertext{LHS = RHS, so \(P(k)\) must hold for all \(k > 1\)}
+        \end{align}
+\end{enumerate}
+
+
+%\vspace{1em}
+%\subsection*{Section 5.2}
+%
+%\ex{Exercise 4}
+%
+%
+%\ex{Exercise 14} 
+
+
+
+\subsection*{Section 5.3}
+\ex{Exercise 12}
+
+\begin{align}
+    \intertext{Basis step:}
+    f_1^2 &= f_1f_2 = 1 \\
+    \intertext{Inductive step:}
+    \sum_{n=1}^{k+1}{f_k^2} &= f_kf_{k+1} + f_{k+1}^2 = f_{k+1}(f_k + f_{k+1}) \\
+    &= f_{n+1}f_{n+2} \\
+\end{align}
+
+\ex{Exercise 18}
+
+\begin{align}
+    \intertext{Basis step:}
+    \matr{A}^1 &= 
+        \begin{bmatrix}
+            f_2 & f_1 \\
+            f_1 & f_0 \\
+        \end{bmatrix} =
+        \begin{bmatrix}
+            1 & 1 \\
+            1 & 0 \\
+        \end{bmatrix} = \matr{A} \\
+    \intertext{Inductive step:}
+    \matr{A}^{k+1} &= \matr{A}\matr{A}^k = 
+        \begin{bmatrix}
+            1 & 1 \\
+            1 & 0 \\
+        \end{bmatrix}
+        \begin{bmatrix}
+            f_{k+1} & f_k \\
+            f_k & f_{k-1} \\
+        \end{bmatrix} = 
+        \begin{bmatrix}
+            f_{k+1} + f_k & f_k + f_{k-1} \\
+            f_{k+1} & f_k \\
+        \end{bmatrix} = 
+        \begin{bmatrix}
+            f_{k+2} & f_{k+1} \\
+            f_{k+1} & f_k \\
+        \end{bmatrix}
+\end{align}
+
+
+
+\subsection*{Section 5.4}
+\ex{Exercise 3}
+
+The calls can be unrolled in the following manner
+
+\begin{verbatim}
+gcd(8,13)
+8 != 0 -> gcd(13 mod 8, 8)
+gcd(5,8)
+5 != 0 -> gcd(8 mod 5, 5)
+gcd(3,5)
+3 != 0 -> gcd(5 mod 3, 3)
+gcd(2,3)
+2 != 0 -> gcd(3 mod 2, 2)
+gcd(1,2)
+1 != 0 -> gcd(2 mod 1, 1)
+gcd(1,1)
+1 != 0 -> gcd(1 mod 1, 1)
+gcd(0,1)
+1 = 0 -> return 1
+-----------------------
+gcd(8,13) = 1
+\end{verbatim}
+
+%% uncomment this if you need references. Edit the .bbl file with your references
+%% and use "\cite{bibitem-label}" to cite
+%\bibliography{template}
+
+\end{document}
+
