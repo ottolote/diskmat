@@ -1,0 +1,192 @@
+\documentclass[a4paper]{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+
+% mathermatics
+\usepackage{amssymb} % useful math symbols
+\usepackage{amsmath} % more useful math
+\usepackage{bm} % for bold matrices
+
+% references and equation numbering
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{autonum}
+
+% graphics
+\usepackage{graphicx}
+\usepackage{float}    % for more accurate graphics placement
+\usepackage{fancyhdr} % for top header
+
+% formatting
+\usepackage{enumitem} % provides easy change of labels in enumerate environment
+\usepackage[top=3cm, bottom=3cm, width=17cm]{geometry} % for smaller page margins
+
+% colors
+\usepackage{xcolor}
+
+%% coding
+% 
+% see https://github.com/gpoore/minted for info
+% uncomment this after you have completed the required installation
+%
+%\usepackage{minted} 
+%\definecolor{codeBgColor}{RGB}{240,240,240}
+%
+
+\newcommand{\matr}[1]{\bm{#1}}
+
+
+% very simple alias, \ex{} becomes the same as \subsubsection*{}
+% TIP: remove the * in the line below if you want it numbered
+\newcommand{\ex}[1]{\subsubsection*{#1}}
+
+
+
+
+%Begining of the document
+\begin{document}
+
+\pagestyle{fancy} % use pagestyle with simple header (from fancyhdr)
+
+%\pagenumbering{gobble} % uncomment to remove pagenumbering (in case of single page document)
+\fancyhead[L]{TMA4140 Diskret Matematikk}
+\fancyhead[C]{\textbf{Øving 10}}
+\fancyhead[R]{Otto Lote 748704}
+
+
+\subsection*{Section 10.3}
+\ex{Exercise 37}
+
+The graphs are isomorphic since both graphs are cyclic and have the same number
+    of vertices all of degree 2. This means we can follow either of the graphs
+    in its cycle and label their vertices as \(u_1 = v_1,\, u_2 = v_3,\, u_3 = v_5,\,
+    ...\) and so on.
+
+\ex{Exercise 42}
+
+These graphs are not isomorphic since there is an edge between \(u_2\) and
+    \(u_3\), which are vertices of degree 4, while the other two vertices of
+    degree four \(v_2\) and \(v_4\) does not have an edge between them. 
+
+\ex{Exercise 54} 
+
+\begin{enumerate}[label=\alph*), start=3] % c
+    \item If we build on the set of non-isomorphic simple graphs with 3
+        vertices (there are two) adding a vertex can increase the degree of
+        one, two or three existing vertices by one. The first graph in the set
+        is a triangle. Adding a vertex to this graph can be done in three ways
+        since the triangle is symmetric (new vertex has one edge, two edges, or
+        three edges). 
+        
+        For the other graph in the set with 3 vertices (the line)
+        There are two ways of adding a vertex with one edge, two ways of adding
+        a vertex with two edges, and one way of adding a vertex with three
+        edges. These are all non-isomorphic with our existing four vertex
+        graphs, except when the added vertex has two edges that forms a
+        triangle. This is a total of 3 + 4 = 7 non-isomorphic graphs with four
+        vertices. 
+
+\end{enumerate}
+
+\subsection*{Section 10.4}
+
+\ex{Exercise 26}
+
+\begin{enumerate}[label=\alph*), start=2] % b
+    \item Between c and d of length 3:
+        From \(c\) we have an edge to \(b\), \(f\) and \(d\) that might be part
+        of a path to \(d\) with length 3. 
+        
+        \(b\) has 3 paths with length 2 that reach \(d\); \((b, e, d)\), \((b, c,
+            d)\)  and \((b, a, d)\).
+
+        \(f\) has two paths with length 2 that reach \(d\); \((f, c, d)\) and
+            \((f, e, d)\).
+
+        \(d\) has 3 paths with length 2 that reach \(d\); \((d, e, d)\), \((d, c,
+            d)\)  and \((d, a, d)\).
+
+        This is a total of 8 paths, which corresponds to \(\bm{A^3}_{(3,4)}\)
+            where \(\bm{A}\) is the adjacency matrix of the graph in figure 1.
+\end{enumerate}
+
+\ex{Exercise 30}
+
+The sum of all degrees of the vertices in a simple undirected graph is always
+    two times the number of edges (two vertices per edge). This means there are
+    an even number of vertices of an odd degree. Since a simple undirected
+    graph has a simple path between any two vertices it follows that a vertex
+    of an odd degree must have a simple path to another vertex of an odd degree
+
+\ex{Exercise 56}
+
+If \(\bm{A}\) is an adjacency matrix of a graph and \(v\) and \(w\) are
+    vertices of that graph, then the number of paths of length \(r\) is given
+    by \(\bm{A}^r_{(v, w)}\). Calculating this expression, and increasing \(r\)
+    by one if the result is 0 will eventually produce non-zero result where
+    \(r\) is the shortest lenght of a path from \(v\) to \(w\).
+
+\subsection*{Section 10.5}
+
+\ex{Exercise 3}
+
+The graphs does not have an Eurler Circuit since \(a\) and \(d\) are vertices
+    of an odd degree. It does however have an Euler Path since the rest of the
+    vertices are of an even degree.
+
+An example is \(a, c, e, b, e, c, d, b, a, e, d\)
+
+\ex{Exercise 30}
+
+The graph does not have a hamilton cycle since there is only one edge from the
+    right side to the left side of the graph.
+
+\ex{Exercise 36}
+
+The graph has several hamilton cycles. An example is \(a, d, g, h, i, e, f, c, b, (a)\).
+
+\ex{Exercise 48}
+
+Two fully connected subgraphs that share exactly one vertex is an example of a
+    graph that does not have a Hamilton cycle since there is no way "back" from
+    either subgraph after "crossing" the shared vertex. If both subgraphs have
+    equal amount of vertices (and are fully connected) their vertices are of
+    degree \((n-1)/2\) except the shared vertex of degree \(n-1\). A concrete
+    example is two triangles that share only one vertex.
+
+\subsection*{Section 10.6}
+
+\ex{Exercise 3}
+
+Since all edges are weighted positively we can use Dijkstras algorithm. 
+
+\begin{tabular}{l | c c c c c c c c}
+    node visited in step & a & b & c & d & e & f & g & z \\
+    \hline 
+    a & 0 & 4 & 3 \\
+    c & 0 & 4 & 3 & 6 & 9 \\
+    b & 0 & 4 & 3 & 6 & 9 \\
+    d & 0 & 4 & 3 & 6 & 7 & 11 \\
+    e & 0 & 4 & 3 & 6 & 7 & 11 & 12 \\
+    f & 0 & 4 & 3 & 6 & 7 & 11 & 12 & 18 \\
+    g & 0 & 4 & 3 & 6 & 7 & 11 & 12 & 16 \\
+    z & 0 & 4 & 3 & 6 & 7 & 11 & 12 & 16 \\
+\end{tabular}
+
+\ex{Exercise 14}
+
+Finding the shortest path by using a weighted graph can be done by uniformly
+    weighting the graph.
+
+\ex{Exercise 18}
+
+No, the sum of two unique weights in a shortest path can still be the same as
+    the length of another path.
+
+
+%% uncomment this if you need references. Edit the .bbl file with your references
+%% and use "\cite{bibitem-label}" to cite
+%\bibliography{template}
+
+\end{document}
+
