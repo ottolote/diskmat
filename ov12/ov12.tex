@@ -1,0 +1,159 @@
+\documentclass[a4paper]{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+
+% mathermatics
+\usepackage{amssymb} % useful math symbols
+\usepackage{amsmath} % more useful math
+\usepackage{bm} % for bold matrices
+
+% references and equation numbering
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{autonum}
+
+% graphics
+\usepackage{graphicx}
+\usepackage{float}    % for more accurate graphics placement
+\usepackage{fancyhdr} % for top header
+
+% formatting
+\usepackage{enumitem} % provides easy change of labels in enumerate environment
+\usepackage[top=3cm, bottom=3cm, width=17cm]{geometry} % for smaller page margins
+
+% colors
+\usepackage{xcolor}
+
+%% coding
+% 
+% see https://github.com/gpoore/minted for info
+% uncomment this after you have completed the required installation
+%
+%\usepackage{minted} 
+%\definecolor{codeBgColor}{RGB}{240,240,240}
+%
+
+\newcommand{\matr}[1]{\bm{#1}}
+
+
+% very simple alias, \ex{} becomes the same as \subsubsection*{}
+% TIP: remove the * in the line below if you want it numbered
+\newcommand{\ex}[1]{\subsubsection*{#1}}
+
+
+
+
+%Begining of the document
+\begin{document}
+
+\pagestyle{fancy} % use pagestyle with simple header (from fancyhdr)
+
+%\pagenumbering{gobble} % uncomment to remove pagenumbering (in case of single page document)
+\fancyhead[L]{TMA4140 Diskret Matematikk}
+\fancyhead[C]{\textbf{Øving 12}}
+\fancyhead[R]{Otto Lote 748704}
+
+
+\subsection*{Section 13.1}
+\ex{Exercise 4}
+
+\begin{enumerate}[label=\alph*)]
+    \item Using a bottom down approach we start with \(11100A \to 111000\).
+        Using \(S \to 00A\) we get \(111S \to 11100A \to 111000\). If we use
+        \(S \to 1S\) three times we get \(S \to 1S \to 11S \to 111S \to 11100A
+        \to 111000\), which shows that 111000 is a production of \(G\).
+    \item \(S\) is the starting symbol, which means all our productions belong
+        to \(S \to 1S\) or \(S \to 00A\). Since \(A \to 0A\) or \(A \to 0\) are
+        the only possibilities here there is no way to have a 1 to the right of
+        a 0.
+    \item Given an \(S\) we have that \(S \to 00A\). Since \(A \to 0A\) we can
+        use this to insert a 0 in front of an A. Since \(S \to 1S\) we can
+        always add a 1 to the left of a valid \(S\). Summarized this means the
+        shortest \(S \to 00A \to 000\) can be expanded left or right with 1s
+        and 0s respectively. In other words, the phrase belongs to \(G\) iff it
+        only exists of the symbols 0 or 1, all 1s are left of all 0s, and there
+        are at least three 0s. 
+\end{enumerate}
+
+
+\ex{Exercise 6} 
+
+\begin{enumerate}[label=\alph*), start=4] % d, e
+    \item From a top down approach we start with \(S \to B\). The first option
+        is \(B \to b\) giving us \(S \to B \to b\). The other option is \(B \to
+        bB\). The effect of \(B \to bB\) is an inserted \(b\) before a given
+        \(B\). \(B \to bB\) is repeatable infinitely, giving us a language
+        consisting of the shortest phrase that stems from \(S \to B\), which is
+        \(b\), with \(n \in \mathbb{N}\) insertions of \(b\). (In other words,
+        a phrase consisting of 1 or more \(b\)s and no other symbols).
+
+        Starting with \(S \to AA\) we have the shortest phrase \(S \to AA \to
+        aaA \to aaaa\). The result of \(A to aaA\) is an insertion of \(aa\)
+        before a given \(A\). This is repeatable, meaning the language consists
+        of \(aaaa\) with inserted \(aa\) \(k \in \mathbb{N}\) times. In other
+        words, all phrases consisting of only the symbol \(a\) of length \(n
+        \leq 4\) where \(n\) is even.
+    \item Using a top down approach the only starting symbol is \(S \to AB\).
+        We see that \(A \to aAb\) is repeatable, and the result is append \(b\)
+        and insert \(a\). \(B \to bBa\) is also repeatable, but inserts \(b\)
+        and appends \(a\). This means the language consists of separated
+        groupings of \(a\)s and \(b\)s where the number of \(a\)s \(n \in
+        \mathcal{N}\) is the same as the number of \(b\)s and the order of the
+        groupings are arbitrary.
+\end{enumerate}
+
+\ex{Exercise 20}
+
+
+
+\subsection*{Section 13.3}
+
+\ex{Exercise 8}
+
+\begin{enumerate}[label=\alph*)]
+    \item 
+\end{enumerate}
+
+\ex{Exercise 10}
+
+\begin{enumerate}[label=\alph*)]
+    \item 
+\end{enumerate}
+
+\ex{Exercise 12}
+
+\begin{enumerate}[label=\alph*)]
+    \item 
+\end{enumerate}
+
+\ex{Exercise 16}
+
+\begin{enumerate}[label=\alph*)]
+    \item 
+\end{enumerate}
+
+\ex{Exercise 22}
+
+\begin{enumerate}[label=\alph*)]
+    \item 
+\end{enumerate}
+
+\ex{Exercise 24}
+
+\begin{enumerate}[label=\alph*)]
+    \item 
+\end{enumerate}
+
+\ex{Exercise 36}
+
+\begin{enumerate}[label=\alph*)]
+    \item 
+\end{enumerate}
+
+
+%% uncomment this if you need references. Edit the .bbl file with your references
+%% and use "\cite{bibitem-label}" to cite
+%\bibliography{template}
+
+\end{document}
+
